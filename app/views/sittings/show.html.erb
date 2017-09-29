@@ -5,5 +5,20 @@
   <%= @sitting.name %>
 </p>
 
+<p>
+  <%= link_to 'Add Person', new_person_path %>
+</p>
+
+<p>
+  <strong>People:</strong>
+  <ul>
+    <% @sitting.people.each do |person| %>
+      <li><%= person.name %></li>
+      <li><%= person.order_amount %></li>
+      <li><%= person.paid_amount %></li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_sitting_path(@sitting) %> |
 <%= link_to 'Back', sittings_path %>
