@@ -25,10 +25,11 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(person_params)
+    target = @person.sitting.nil? ? @person : @person.sitting
 
     respond_to do |format|
       if @person.save
-        format.html { redirect_to @person, notice: 'Person was successfully created.' }
+        format.html { redirect_to target, notice: 'Person was successfully created.' }
         format.json { render :show, status: :created, location: @person }
       else
         format.html { render :new }
