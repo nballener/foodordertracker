@@ -1,50 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @sitting.name %>
-</p>
+<div class="container">
+  <h1><%= @sitting.name %></h1>
+</div>
 
-<p>
-<%= link_to 'Add Person', new_person_path( person: { sitting_id: @sitting.id } ), style: "color: white;", class: "btn btn-primary btn-block", role: "button" %>
-</p>
+<div class="container-fluid">
+  <%= link_to 'Add Person', new_person_path( person: { sitting_id: @sitting.id } ), style: "color: white;", class: "btn btn-primary btn-block", role: "button" %>
+</div>
 
-<p>
-  <strong>People:</strong>
-  <p>
-    <table>
+<div class="container">
+  <h2>People</h2>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>Order</th>
+      <th>Paid</th>
+      <th>Owing</th>
+      <th>Change</th>
+    </tr>
+
+    <% @sitting.people.each do |person| %>
       <tr>
-        <th>Name</th>
-        <th>Order</th>
-        <th>Paid</th>
-        <th>Owing</th>
-        <th>Change</th>
+        <td><%= link_to person.name, edit_person_path(person) %></td>
+        <td><%= person.order_amount %></td>
+        <td><%= person.paid_amount %></td>
+        <td><%= person.calculate_owing %></td>
+        <td><%= person.calculate_change %></td>
       </tr>
+    <% end %>
+  </table>
+</div>
 
-      <% @sitting.people.each do |person| %>
-        <tr>
-          <td><%= link_to person.name, edit_person_path(person) %></td>
-          <td><%= person.order_amount %></td>
-          <td><%= person.paid_amount %></td>
-          <td><%= person.calculate_owing %></td>
-          <td><%= person.calculate_change %></td>
-        </tr>
-      <% end %>
-    </table>
-  </p>
-</p>
-
-<p>
+<div class="container">
   <strong>Total Order:</strong> <%= @total_order %>
-</p>
+</div>
 
-<p>
+<div class="container">
   <strong>Total Paid:</strong> <%= @total_paid %>
-</p>
+</div>
 
-<p>
+<div class="container">
   <strong>Total Owing:</strong> <%= @total_owing %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_sitting_path(@sitting), class: "btn btn-primary btn-block", style: "color:white" %>
-<%= link_to 'Back', url_for(:back), class: "btn btn-primary btn-block", style: "color:white" %>
+<div class="container">
+  <%= link_to 'Edit', edit_sitting_path(@sitting), class: "btn btn-primary btn-block", style: "color:white" %>
+</div>
+<div class="container">
+  <%= link_to 'Back', url_for(:back), class: "btn btn-primary btn-block", style: "color:white" %>
+</div>
