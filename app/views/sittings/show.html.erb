@@ -6,7 +6,7 @@
 </p>
 
 <p>
-<%= link_to 'Add Person', new_person_path( person: { sitting_id: @sitting.id } ) %>
+<%= link_to 'Add Person', new_person_path( person: { sitting_id: @sitting.id } ), style: "color: white;", class: "btn btn-primary btn-block", role: "button" %>
 </p>
 
 <p>
@@ -46,5 +46,5 @@
   <strong>Total Owing:</strong> <%= @total_owing %>
 </p>
 
-<%= link_to 'Edit', edit_sitting_path(@sitting) %> |
-<%= link_to 'Back', url_for(:back) %>
+<%= link_to 'Edit', edit_sitting_path(@sitting), class: "btn btn-primary btn-block", style: "color:white" %>
+<%= link_to 'Back', url_for(:back), class: "btn btn-primary btn-block", style: "color:white" %>
