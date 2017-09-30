@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Sitting.create([
-  { name: 'Test' },
+sittings = Sitting.create([
+  { name: 'Test Burger Joint' },
 ])
+
+john_do    = Person.create({ sitting: sittings[0], name: 'John Do',    order_amount: 15.00, paid_amount: 0.0    })
+jane_do    = Person.create({ sitting: sittings[0], name: 'Jane Do',    order_amount: 15.00, paid_amount: 0.0    })
+john_smith = Person.create({ sitting: sittings[0], name: 'John Smith', order_amount: 10.00, paid_amount: 100.00 })
+jane_smith = Person.create({ sitting: sittings[0], name: 'Jane Smith', order_amount: 50.00, paid_amount: 0.0    })
+
