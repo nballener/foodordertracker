@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 20170929223440) do
 
   create_table "people", force: :cascade do |t|
     t.string "name"
-    t.decimal "order_amount"
-    t.decimal "paid_amount"
+    t.decimal "order_amount", default: "0.0"
+    t.decimal "paid_amount", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sitting_id"
