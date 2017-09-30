@@ -12,14 +12,23 @@
 <p>
   <strong>People:</strong>
   <p>
-    <% @sitting.people.each do |person| %>
-      <p>
-        <%= link_to person.name, edit_person_path(person) %> |
-        <%= person.order_amount %> |
-        <%= person.paid_amount %> |
-        <%= person.calculate_change %>
-      </p>
-    <% end %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Order</th>
+        <th>Paid</th>
+        <th>Change</th>
+      </tr>
+
+      <% @sitting.people.each do |person| %>
+        <tr>
+          <td><%= link_to person.name, edit_person_path(person) %></td>
+          <td><%= person.order_amount %></td>
+          <td><%= person.paid_amount %></td>
+          <td><%= person.calculate_change %></td>
+        </tr>
+      <% end %>
+    </table>
   </p>
 </p>
 
