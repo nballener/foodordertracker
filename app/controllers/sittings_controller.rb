@@ -10,6 +10,10 @@ class SittingsController < ApplicationController
   # GET /sittings/1
   # GET /sittings/1.json
   def show
+    people = @sitting.people
+    @total_order = people.map { |p| p['order_amount'] }.reduce(0, :+)
+    @total_paid = people.map { |p| p['paid_amount'] }.reduce(0, :+)
+    @total_owing = @total_order - @total_paid
   end
 
   # GET /sittings/new
