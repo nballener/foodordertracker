@@ -2,7 +2,7 @@
 
 <p>
   <strong>Sitting:</strong>
-  <%= @person.sitting %>
+  <%= link_to @person.sitting.name, @person.sitting %>
 </>
 
 <p>
@@ -21,4 +21,4 @@
 </p>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'Back', url_for(:back) %>
