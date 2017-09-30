@@ -17,6 +17,7 @@
         <th>Name</th>
         <th>Order</th>
         <th>Paid</th>
+        <th>Owing</th>
         <th>Change</th>
       </tr>
 
@@ -25,6 +26,7 @@
           <td><%= link_to person.name, edit_person_path(person) %></td>
           <td><%= person.order_amount %></td>
           <td><%= person.paid_amount %></td>
+          <td><%= person.calculate_owing %></td>
           <td><%= person.calculate_change %></td>
         </tr>
       <% end %>
