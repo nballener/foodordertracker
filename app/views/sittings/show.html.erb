@@ -11,13 +11,11 @@
 
 <p>
   <strong>People:</strong>
-  <ul>
+  <p>
     <% @sitting.people.each do |person| %>
-      <li><%= person.name %></li>
-      <li><%= person.order_amount %></li>
-      <li><%= person.paid_amount %></li>
+      <p><%= link_to person.name, edit_person_path(person) %> | <%= person.order_amount %> | <%= person.paid_amount %></p>
     <% end %>
-  </ul>
+  </p>
 </p>
 
 <%= link_to 'Edit', edit_sitting_path(@sitting) %> |

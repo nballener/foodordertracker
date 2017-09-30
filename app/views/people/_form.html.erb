@@ -11,10 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%# abort request.GET[:person].inspect %>
-    <%= form.hidden_field :sitting_id, id: :person_sitting_id, value: request.GET[:person][:sitting_id] %>
-  </div>
+  <% unless request.GET.empty? %>
+    <div class="field">
+      <%= form.hidden_field :sitting_id, id: :person_sitting_id, value: request.GET[:person][:sitting_id] %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= form.label :name %>
