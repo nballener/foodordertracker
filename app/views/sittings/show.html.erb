@@ -13,7 +13,12 @@
   <strong>People:</strong>
   <p>
     <% @sitting.people.each do |person| %>
-      <p><%= link_to person.name, edit_person_path(person) %> | <%= person.order_amount %> | <%= person.paid_amount %></p>
+      <p>
+        <%= link_to person.name, edit_person_path(person) %> |
+        <%= person.order_amount %> |
+        <%= person.paid_amount %> |
+        <%= person.calculate_change %>
+      </p>
     <% end %>
   </p>
 </p>
