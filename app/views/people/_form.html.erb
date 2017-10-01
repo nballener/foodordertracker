@@ -17,22 +17,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :person_name %>
+  <div class="field-group">
+    <%= form.label :name, class: "col-lg-2 control-label" %>
+    <%= form.text_field :name, id: :person_name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :order_amount %>
-    <%= form.text_field :order_amount, id: :person_order_amount %>
+  <div class="field-group">
+    <%= form.label :order_amount, class: "col-lg-2 control-label" %>
+    <%= form.text_field :order_amount, id: :person_order_amount, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :paid_amount %>
-    <%= form.text_field :paid_amount, id: :person_paid_amount %>
+  <div class="field-group">
+    <%= form.label :paid_amount, class: "col-lg-2 control-label" %>
+    <%= form.text_field :paid_amount, id: :person_paid_amount, class: "form-control" %>
   </div>
 
-  <div class="actions">
+  <div class="field-group">
     <%= form.submit class: "btn btn-success btn-block"  %>
   </div>
 <% end %>
