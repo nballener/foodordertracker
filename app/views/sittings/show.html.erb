@@ -1,41 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-  <h1><%= @sitting.name %></h1>
-</div>
+<h1><%= @sitting.name %></h1>
 
-<div class="container">
-  <%= link_to 'Add Person', new_person_path( person: { sitting_id: @sitting.id } ), style: "color: white;", class: "btn btn-primary btn-block", role: "button" %>
-</div>
+<%= link_to 'Add Person', new_person_path( person: { sitting_id: @sitting.id } ), style: "color: white;", class: "btn btn-primary btn-block", role: "button" %>
 
-<div class="container">
-  <h2>People</h2>
-  <table class="table table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Order</th>
-        <th>Paid</th>
-        <th>Owing</th>
-        <th>Change</th>
-      </tr>
-    </thead>
+<h2>People</h2>
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Order</th>
+      <th>Paid</th>
+      <th>Owing</th>
+      <th>Change</th>
+    </tr>
+  </thead>
 
-    <tbody>
-    <% @sitting.people.each do |person| %>
-      <tr>
-        <td><%= link_to person.name, edit_person_path(person) %></td>
-        <td><%= number_to_currency person.order_amount %></td>
-        <td><%= number_to_currency person.paid_amount %></td>
-        <td><%= number_to_currency person.calculate_owing %></td>
-        <td><%= number_to_currency person.calculate_change %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+  <tbody>
+  <% @sitting.people.each do |person| %>
+    <tr>
+      <td><%= link_to person.name, edit_person_path(person) %></td>
+      <td><%= number_to_currency person.order_amount %></td>
+      <td><%= number_to_currency person.paid_amount %></td>
+      <td><%= number_to_currency person.calculate_owing %></td>
+      <td><%= number_to_currency person.calculate_change %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
-<div class="container">
   <h2>Total</h2>
   <table class="table table-striped">
     <tbody>
@@ -53,14 +46,9 @@
       </tr>
     </tbody>
   </table>
-</div>
 
-<div class="container">
   <%= link_to 'Edit', edit_sitting_path(@sitting), class: "btn btn-primary btn-block", style: "color:white" %>
-</div>
-<div class="container">
+
   <%= link_to 'Destroy', @sitting, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block white" %>
-</div>
-<div class="container">
+
   <%= link_to 'Back', url_for(:back), class: "btn btn-primary btn-block", style: "color:white" %>
-</div>
