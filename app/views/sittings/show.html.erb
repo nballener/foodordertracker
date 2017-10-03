@@ -29,26 +29,24 @@
   </tbody>
 </table>
 
-  <h2>Total</h2>
-  <table class="table table-striped">
-    <tbody>
-      <tr>
-        <td>Order</td>
-        <td><%= number_to_currency @total_order %></td>
-      </tr>
-      <tr>
-        <td>Paid</td>
-        <td><%= number_to_currency @total_paid %></td>
-      </tr>
-      <tr>
-        <td>Owing</td>
-        <td><%= number_to_currency @total_owing %></td>
-      </tr>
-    </tbody>
-  </table>
+<h2>Total</h2>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>Order</td>
+      <td><%= number_to_currency @total_order %></td>
+    </tr>
+    <tr>
+      <td>Paid</td>
+      <td><%= number_to_currency @total_paid %></td>
+    </tr>
+    <tr>
+      <td>Owing</td>
+      <td><%= number_to_currency @total_owing %></td>
+    </tr>
+  </tbody>
+</table>
 
-  <%= link_to 'Edit', edit_sitting_path(@sitting), class: "btn btn-primary btn-block", style: "color:white" %>
-
-  <%= link_to 'Destroy', @sitting, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block white" %>
-
-  <%= link_to 'Back', url_for(:back), class: "btn btn-primary btn-block", style: "color:white" %>
+<%= link_to 'Edit', edit_sitting_path(@sitting), class: "btn btn-primary btn-block white" %>
+<%= link_to 'Destroy', @sitting, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block white" %>
+<%= link_to 'Back', url_for(:back), class: "btn btn-primary btn-block white" %>

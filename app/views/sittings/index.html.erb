@@ -2,16 +2,13 @@
 
 <h1>Sittings</h1>
 
+<ul class="list-group">
 <% @sittings.each do |sitting| %>
-  <div class="panel panel-default">
-    <div class="panel-heading"><%= sitting.name %><%= link_to 'Show', sitting, class: "btn btn-link" %></div>
-    <div class="panel-body">
-      <div>
-        <%= number_to_currency sitting.order_amount %>
-        <%= link_to 'Destroy', sitting, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger white" %>
-      </div>
-    </div>
-  </div>
+  <li class="list-group-item">
+    <%= link_to sitting.name, sitting, class: "btn btn-link" %>
+    <%= number_to_currency sitting.order_amount %>
+  </li>
 <% end %>
+</ul>
 
 <%= link_to 'New Sitting', new_sitting_path, class: "btn btn-success btn-block white" %>
