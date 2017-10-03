@@ -5,6 +5,11 @@ class SittingsController < ApplicationController
   # GET /sittings.json
   def index
     @sittings = Sitting.all
+    @sittings.each do |s|
+      people = s.people
+      s.order_amount = calculate_amount(people, 'order_amount')
+      s.paid_amount = calculate_amount(people, 'paid_amount')
+    end
   end
 
   # GET /sittings/1
